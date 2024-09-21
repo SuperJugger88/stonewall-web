@@ -2,7 +2,7 @@ import { h } from "preact";
 import { Handlers, type PageProps } from "$fresh/server.ts";
 
 
-export default function SendRepitEmailFrom() {
+export default function SendRepeatEmailFrom() {
     return (
         <div className="container">
             <h1>Confirm Your Email</h1>
@@ -10,7 +10,7 @@ export default function SendRepitEmailFrom() {
             <form id="confirmationForm">
                 <button type="submit"
                         className="px-10 py-2 text-white bg-orange-500 rounded-md hover:bg-blue-600 focus:outline-none">
-                    Repit email message
+                    Repeat email message
                 </button>
             </form>
         </div>
