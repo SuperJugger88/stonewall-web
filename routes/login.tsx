@@ -1,6 +1,7 @@
 import AuthForm from '../components/AuthForm.tsx';
 import { h } from "preact";
 import { Handlers, PageProps } from "$fresh/server.ts";
+import { setCookie } from "$std/http/cookie.ts";
 
 interface Props {
     message: string | null;
@@ -30,8 +31,22 @@ export const handler:  Handlers<Props> = {
         });
 
         if (response.ok) {
-            // const data = await response.json();
-            return Response.redirect("http://localhost/", 302);
+            const cookie = response.headers.get("Cookie")
+            const headers = new Headers();
+            setCookie(headers, {
+                name: "auth_cookie",
+                value: cookie, // this should be a unique value for each session
+                maxAge: 172800,
+                sameSite: "Lax", // this is important to prevent CSRF attacks
+                domain: "localhost",
+                path: "/",
+                secure: false,
+            });
+            headers.set("location", "/");
+            return new Response(null, {
+                status: 303, // "See Other"
+                headers,
+            });
         } else {
             return ctx.render({
                 message: `неправильный логин или пароль`,
