@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --background-light: linear-gradient(to right, #4facfe, #00f2fe);
+    --background-dark: linear-gradient(to right, #f6d365, #fda085);
+    --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: var(--background-dark);
+        --foreground: #ededed;
+    }
+}
+
+body {
+    background: var(--background-light);
+    color: var(--foreground);
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    font-weight: 700;
+    color: #0a0a0a;
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+}
+
+@font-face {
+    font-family: 'NCL Robowapix';
+    src: url('../fonts/NCLRobowapix.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
