@@ -22,7 +22,7 @@ export default function LoginForm() {
         });
 
         if (response.ok) {
-            await router.push('/profile');
+            await router.push('/');
         } else {
             const errorMessage = await response.text();
             setError(errorMessage);
