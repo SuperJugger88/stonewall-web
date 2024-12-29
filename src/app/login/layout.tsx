@@ -15,7 +15,6 @@ export default function RootLayout({
         <html lang="en">
         <head>
             <title>{metadata.title}</title>
-            <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
         </head>
         <body className="antialiased">
         {children}
